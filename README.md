@@ -3,7 +3,7 @@
 This is a Microsoft Excel model for determining the levels of insulation and PV (Solar) panels that minimize the construction cost of a Net Zero Energy home.  This model was born out of Net Zero discussions amongst members of the [Alaska Center for Appropriate Technology](http://acat.org/).
 
 [Click here to Download the Excel Net Zero Energy Optimizer Model](Net_Zero_Optimizer.xlsm?raw=true)  
-When you open the Excel workbook, you need to click the button at the top of the workbook to "Enable Content" (Macros), as the workbook has a macro attached to the "Optimize" button.  Also, this workbook uses the Excel Solver Add-In, which is provided by Microsoft with Excel.  However, the Solver Add-In needs to be enabled according to these instructions (this only needs to done once for installation of Excel):
+When you open the Excel workbook, you need to click the button at the top of the workbook to "Enable Content" (Macros), as the workbook has a macro attached to the "Optimize" button.  Also, this workbook uses the Excel Solver Add-In, which is provided by Microsoft with Excel.  However, the Solver Add-In needs to be enabled according to these instructions (this only needs to done once for your installation of Excel):
 
 [Instructions for Loading the Excel Solver Add-In](https://support.office.com/en-us/article/Load-the-Solver-Add-in-612926fc-d53b-46b4-872c-e24772f078ca)
 
