@@ -22,5 +22,6 @@ Here is a screenshot of the key values that are optimized and the cost inputs as
 
 ![Optimization Inputs](images/opt_inputs.jpg)
 
+The thick bordered box on the left highlights the four characteristics that are manipulated in the optimizatio process.  The gray "Optimize" button starts the optimization, and Excel finds the cost-minimizing values for the PV capacity and the three R-values.  In this example, the home reached net zero and minimized construction cost with 9.13 kW of PV, R-29 Walls, R-56 ceilings, and R-45 floors (the model simplifies and assumes all R-values and PV outputs are possible.  The model could be modified to only allow certain discrete possibilities.)
 
 To Be Continued!
