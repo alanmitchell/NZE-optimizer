@@ -50,8 +50,8 @@ The model allows you to choose the fuel type used for Space Heating and separate
 
 The Optimize feature of the model will choose a set of insulation and PV capacity values that minimize cost and achieve net zero energy use.  You can select whether you want to use a Source or a Site energy use standard for determining net zero.  If you choose to use Source energy, the model uses Site-to-Source multipliers that are entered on the "Support" sheet of the model.  The values currently present there are the DOE source multipliers.
 
+Note that the model does not consider the reduction in heating system capital costs that can sometimes occur with higher insulation levels and reduced heating loads.  Considering these costs reductions could lead to optimal insulation levels higher than those calculated by this model.
+
 ## Analyzing Other Economic Trade-offs
 
 The model can only automatically optimize the four variables described previously.  However, you can use the model to examine other economic trade-offs related to designing a net zero home.  Here is an example.  Say that you want to determine whether it will reduce the cost of the net zero home by installing a solar domestic hot water heater that supplies 60% of the DHW load.  First, run the Optimize feature of the model with the full domestic hot water load.  For the sample home, this load (prior to heating system losses) is 11.8 MMBtu/year.  After running Optimize, the total cost shown in cell H20 is **$46,455**.  Now, enter a hot water load that is 60% less:  `11.8 MMBtu * 0.4 = 4.7 MMBtu`.  Rerun the Optimize feature and examine the new total cost in cell H20.  The new cost is **$43,429**; the cost has decreased due to being able to downsize the PV capacity and still meet net zero.  The difference between these two cost figures is:  $46,455 - $43,429 = **$3,026**.  If you can install the solar hot water system for less than this amount (unlikely), the overall cost of the net zero home will be reduced.
-
-## To Be Continued!
