@@ -24,7 +24,7 @@ Here is a screen shot of the key values that are optimized and the cost inputs a
 
 ![Optimization Inputs](images/opt_inputs.jpg)
 
-The thick bordered box on the left highlights the four characteristics that are manipulated in the optimization process.  The gray "Optimize" button starts the optimization, and Excel finds the cost-minimizing values for the PV capacity and the three R-values.  In this example, the home reached net zero and minimized construction cost with 9.23 kW of PV, R-27 Walls, R-55 ceilings, and R-45 floors (the model simplifies and assumes all R-values and PV outputs are possible.  The model could be modified to only allow certain discrete possibilities.)
+The thick bordered box on the left highlights the four characteristics that are manipulated in the optimization process.  The gray "Optimize" button starts the optimization, and Excel finds the cost-minimizing values for the PV capacity and the three R-values.  In this example, the home reached net zero and minimized construction cost with 9.44 kW of PV, R-27 Walls, R-55 ceilings, and R-45 floors (the model simplifies and assumes all R-values and PV outputs are possible.  The model could be modified to only allow certain discrete possibilities.)
 
 Note that you can manually type in values for the four characteristics to test out your own possible solutions.  These values will be over-written by the Solver if you later run the Optimize feature.  When you do run the Optimize feature, make sure the starting values in the cells are reasonable or Solver may have difficulty finding a solution.
 
@@ -38,4 +38,20 @@ In the example above, the incremental PV cost is shown as $3,300 / kW.  That mea
 
 One common situation where these linear cost estimates break down is when there is limited space to install a PV system.  Available roof space will be exceeded at some point, and additional capacity is either not possible or must be more-expensively ground mounted.  The model can somewhat accommodate this situation through use of the "Limit on PV capacity due to space" input shown above.  If you know that you can only install as much as 8 kW of PV on your roof, then you can enter this 8 kW limit for this input.  When the optimization is run, it will limit the amount of PV capacity used (the optimizer may choose to use less than the limit value if doing so minimizes costs).  Note that if you set this limit too low, the Excel Solver may not be able to find a solution that results in Net Zero energy use.  No level of Wall/Floor/Ceiling R-values will be able to drop energy use to net zero with the limited amount of PV capacity.
 
-To Be Continued!
+## Energy Models
+
+This spreadsheet includes simple energy models to estimate the amount of fuel and/or electricity used for Space Heating, Domestic Hot Water, and Lights/Appliances.  No air conditioning energy use is modeled, and the Space Heating model used is a simple one appropriate only for nothern climates such as Alaska.  These models are not meant for accurate design of a net zero home, but they are useful for approximately estimating the characteristics of a net zero home and for approximately optimizing the tradeoff between home insulation and PV capacity.
+
+The Space Heating model estimates total annual gross heat loss from the building and then deducts usable internal and usable solar gains.  The model does estimate the magnitude of the gross internal gains, but you must enter the *usability* of those gains, i.e the portion of those gains that offset heat load that must be supplied by the heating system.  In Alaska, internal gain usability is generally high, in excess of 95%.  The Energy Flows report in the [AkWarm modeling software](http://analysisnorth.com/AkWarm/AkWarm2download.html) can provide and estimate of internal gain usability for your specific home.  Also, the NZE optimizer model requires entry of the annual usable solar gain for your home; this is another value that can be found on the AkWarm Energy Flows report, or from a different energy modeling program.  Here is an AkWarm file for the sample home used in the model:
+
+[Sample Home](Optimizer-Test-House.hm2?raw=true)
+
+The model allows you to choose the fuel type used for Space Heating and separately for Domestic Hot Water.  As well as selecting the fuel type, you need to enter a seasonal efficiency for the heating system.
+
+The Optimize feature of the model will choose a set of insulation and PV capacity values that minimize cost and achieve net zero energy use.  You can select whether you want to use a Source or a Site energy use standard for determining net zero.  If you choose to use Source energy, the model uses Site-to-Source multipliers that are entered on the "Support" sheet of the model.  The values currently present there are the DOE source multipliers.
+
+## Analyzing Other Economic Trade-offs
+
+The model can only automatically optimize the four variables described previously.  However, you can use the model to examine other economic trade-offs related to designing a net zero home.  Here is an example.  Say that you want to determine whether it will reduce the cost of the net zero home by installing a solar domestic hot water heater that supplies 60% of the DHW load.  First, run the Optimize feature of the model with the full domestic hot water load.  For the sample home, this load (prior to heating system losses) is 11.8 MMBtu/year.  After running Optimize, the total cost shown in cell H20 is **$46,455**.  Now, enter a hot water load that is 60% less:  `11.8 MMBtu * 0.4 = 4.7 MMBtu`.  Rerun the Optimize feature and examine the new total cost in cell H20.  The new cost is **$43,429**; the cost has decreased due to being able to downsize the PV capacity and still meet net zero.  The difference between these two cost figures is:  $46,455 - $43,429 = **$3,026**.  If you can install the solar hot water system for less than this amount (unlikely), the overall cost of the net zero home will be reduced.
+
+## To Be Continued!
